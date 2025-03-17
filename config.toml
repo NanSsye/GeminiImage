@@ -1,0 +1,31 @@
+[GeminiImage]
+# 基本配置
+enable = true
+gemini_api_key = ""  # Gemini API密钥
+model = "gemini-2.0-flash-exp-image-generation"  # 使用的模型名称
+
+# 命令配置
+commands = ["#生成图片", "#画图", "#图片生成"]  # 生成图片的命令
+edit_commands = ["#编辑图片", "#修改图片"]      # 编辑图片的命令
+exit_commands = ["#结束对话", "#退出对话", "#关闭对话", "#结束"]  # 结束对话的命令
+
+# 积分系统配置
+enable_points = true
+generate_image_cost = 0  # 生成图片消耗的积分
+edit_image_cost = 0      # 编辑图片消耗的积分
+
+# 图片保存配置
+save_path = "temp"        # 临时保存生成图片的路径
+
+# 超级用户设置，可免费使用
+admins = []               # 管理员列表 
+
+# 代理配置
+enable_proxy = false
+proxy_url = "http://127.0.0.1:7890"  # 代理地址，格式如：http://127.0.0.1:7890 或 socks5://127.0.0.1:1080 
+
+# 群聊中继续对话的唤醒词
+wake_words = ["#生成图片", "#画图", "#图片生成", "#编辑图片", "#修改图片", "#继续", "#图片", "#修改"] 
+
+# 机器人名称配置（用于检测@消息）
+robot_names = ["XYBot", "小歪", "机器人"] 
