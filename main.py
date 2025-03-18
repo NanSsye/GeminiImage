@@ -24,7 +24,7 @@ class GeminiImage(PluginBase):
     """基于Google Gemini的图像生成插件"""
     
     description = "基于Google Gemini的图像生成插件"
-    author = "XYBot"
+    author = "老夏的金库"
     version = "1.0.0"
     
     def __init__(self):
