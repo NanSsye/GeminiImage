@@ -347,26 +347,7 @@ class GeminiImage(PluginBase):
         
         # 检查是否是对话继续（没有前缀命令，但有活跃会话）
         if conversation_key in self.conversations and content and not any(content.startswith(cmd) for cmd in self.commands + self.edit_commands):
-            # 在群聊中，检查是否包含唤醒词或@机器人
-            if message.get("IsGroup", False):
-                # 在群聊中必须包含唤醒词或@机器人才能继续对话
-                if not self.has_wake_word(content) and not self.is_at_message(message):
-                    # 没有唤醒词，不处理
-                    return True
-                
-                # 清理消息内容，移除唤醒词和@标记
-                clean_content = self.get_clean_content(content)
-                if not clean_content.strip():
-                    # 清理后内容为空，不处理
-                    return True
-                
-                # 使用清理后的内容继续对话
-                content = clean_content
-            else:
-                # 私聊中也需要命令前缀才能继续对话
-                return True
-                
-            # 有活跃会话，且包含必要的唤醒词，视为继续对话
+            # 有活跃会话，且不是其他命令，视为继续对话
             try:
                 logger.info(f"继续对话: 用户={sender_wxid}, 内容='{content}'")
                 
